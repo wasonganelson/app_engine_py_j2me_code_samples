@@ -1,0 +1,26 @@
+from google.appengine.ext.webapp.util import run_wsgi_app
+from indexpage import * #contains requesthandler for handling requests to url '/' ...
+from aboutpage import * #contains requesthandler for handling requests to url '/about' ...
+from helppage import * #contains requesthandler for handling requests to url '/help' ...
+from mapagentatmpage import * #contains requesthandler for handling requests to url '/mapagentatm' ...
+from mpesapointsaroundpage import * #contains requesthandler for handling requests to url '/mpesapointsaround' ...
+from viewmappage import * #contains requesthandler for handling requests to url '/viewmap' ...
+from error import * #contains requesthandler for handling requests to url '/error' ...
+from upload import * #contains requesthandler for handling requests to url '/upload' ...
+
+application =  webapp.WSGIApplication([('/',Indexpage),
+                                       ('/about',Aboutpage),
+                                       ('/help',Helppage),
+                                       ('/mapagentatm',Mapagentatmpage),
+                                       ('/mpesapointsaround',Mpesapointsaroundpage),
+                                       ('/viewmap',Viewmappage),
+                                       ('/error',Error),
+                                       ('/upload',Upload)
+                                      ],
+                                      debug=True)
+
+def main():
+   run_wsgi_app(application)
+
+if __name__ == "__main__":
+   main()

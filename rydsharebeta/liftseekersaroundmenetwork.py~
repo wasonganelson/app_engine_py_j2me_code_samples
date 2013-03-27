@@ -1,0 +1,166 @@
+from google.appengine.api import users
+from google.appengine.ext import webapp
+from database import * #need this module to populate datastore ...
+import timestamper #contains timestamper def to get time of article post ...
+import calculatedistance #contains calculatedistance ...
+
+class Liftseekersaroundmenetwork(webapp.RequestHandler):
+   def get(self):
+      #update datastore by deleting posts with elapsed timestamps ...
+      timestamper.updatedatastore()
+      offset = self.request.get('offset')
+      if offset == '':
+         offset = 0
+      else:
+         offset = int(offset)
+      useremail = ''
+      usernetwork = '' #list of users connected to currently logged in users ...
+      user = users.get_current_user()
+      if not user:
+         self.redirect(users.create_login_url(self.request.uri))
+      else:
+         useremail = users.get_current_user().email()
+      query = Usersnetworktable.all()
+      query.filter('useremail',useremail)
+      queryresults = query.fetch(1,0)
+      for userdetails in queryresults:
+         usernetwork = userdetails.usernetwork
+      usernetwork = usernetwork.split()
+      userlatitude = self.request.get('userlatitude')
+      userlongitude = self.request.get('userlongitude')
+      distanceid = [] #list of tuples ...
+      content = ''
+      query = Liftseekerstable.all()
+      query.order('timestamp') #order by timestamp desc ... least recent to most recent  ...
+      query.filter('status','active')
+      queryresults = query #query.fetch(100,0) ...
+      if len(queryresults.fetch(1,0)) == 0:
+         content = '<div class="content" data-role="content" data-theme="a" align="center"><br/><br/><b>sorry! no lift seekers ...</b><br/><br/></div>'
+      else:
+         noofliftseekers = 0
+         for liftseeker in queryresults:
+            if liftseeker.useremail in usernetwork:
+               distance = calculatedistance.calculatedistance(userlatitude, userlongitude, liftseeker.latitude, liftseeker.longitude)
+               primaryid = liftseeker.aaprimaryid
+               x = (distance, primaryid)
+               distanceid.append(x)
+               noofliftseekers += 1
+            else: continue
+         distanceid.sort()
+         distanceid = distanceid[offset:offset+10]
+         for i in range(len(distanceid)):
+            primaryid = distanceid[i][1]
+            distance = distanceid[i][0]
+            query = Liftseekerstable.all()
+            query.filter('aaprimaryid',primaryid)
+            queryresults = query.fetch(1,0)
+            for liftseeker in queryresults:
+               liftseekerkey = liftseeker.key()
+               departurepoint = liftseeker.departurepoint
+               destinationpoint = liftseeker.destinationpoint
+               costperseat = liftseeker.costperseat
+               departuretime = liftseeker.departuretime
+               timestamp = liftseeker.timestamp
+               useremail = liftseeker.useremail
+               #use email to get user profile image ...
+               query1 = Userstable.all()
+               query1.filter('useremail',useremail)
+               queryresults = query1.fetch(1,0)
+               imagekey = ''
+               for userdetails in queryresults:
+                  imagekey = userdetails.key()
+               liftseekerscontent = '''<div class="ridesharedsummaryblock">
+                     <img class="ridesharedsummaryimage" src="/getimage?key=%s"/>
+                     <div class="ridesharedsummarytext">
+                         <span class="fromto">seeking lift from:</span> %s<br/>
+                         <span class="fromto">to:</span> %s<br/>
+                         <span class="fromto">will pay(KES):</span> %s<br/>
+                         <span class="fromto">posted:</span> %s meters away<br/><br/>
+                         <div align="left"><a class="viewmorelink" href="/getliftseeker?key=%s&userlatitude=%s&userlongitude=%s"> more...</a></div>
+                     </div>
+                   </div>
+                   <div class="ridesharedsummaryendline"></div>'''%(imagekey, departurepoint, destinationpoint, costperseat, distance, liftseekerkey, userlatitude, userlongitude)
+               content = content + liftseekerscontent
+         moreliftseekerslink = ''
+         if offset+10<noofliftseekers:
+            moreliftseekerslink = '<div><a class="viewmorelink" href="/liftseekersaroundme?offset=%d&userlatitude=%s&userlongitude=%s">more lift seekers >></a></div>'%(offset+10,userlatitude,userlongitude)
+         #create content ...
+         content = '<div class="content" data-role="content" data-theme="a">' + content + moreliftseekerslink + '</div>'
+      header = '''<!doctype html> 
+<html>
+	<head>
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0;" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<link type="text/css" rel="stylesheet" href="jscss/jqmcss.css" />
+		<link type="text/css" rel="stylesheet" href="jscss/style.css" />
+		<script type="text/javascript" src="jscss/jqjs.js"></script>
+                <script type="text/javascript" src="jscss/custom.js"></script> 
+		<script type="text/javascript" src="jscss/jqmjs.js"></script> 
+                <title> 
+			Rideshare-Ke
+		</title> 
+	</head> 
+	<body>
+		<div data-role="page" data-theme="a"> 
+			<div data-role="header" data-theme="a">
+				<h5 class="headertext">Rideshare-Ke</h5>
+			</div>
+                        <div data-role="navbar" data-theme="a">
+	                    <ul><li><a href="/liftseekersaroundme?userlatitude=%s&userlongitude=%s">all<br/>posts</a></li>
+	                        <li><a href="/liftseekersaroundmenetwork?userlatitude=%s&userlongitude=%s">posts<br/>from network</a></li></ul>
+</div>
+''' % (userlatitude, userlongitude, userlatitude, userlongitude)
+
+      footer = '''
+<ul data-role="listview" data-inset="false" data-theme="a"> 
+	<li>
+		<a onclick="url='/ridessharedaroundme';getridessharedaroundme();"> 
+			rides shared
+		</a> 
+	</li>
+        <li> 
+		<a onclick="url='/liftseekersaroundme';getliftseekersaroundme();"> 
+			lift seekers
+		</a> 
+	</li>
+        <li> 
+		<a href="/postridelogin"> 
+			share ride
+		</a> 
+	</li>
+        <li> 
+		<a href="/seekliftlogin"> 
+			seek lift
+		</a> 
+	</li>
+        <li> 
+		<a href="/aboutlogin"> 
+			about
+		</a> 
+	</li>
+        <li> 
+		<a href="/helplogin"> 
+			help
+		</a> 
+	</li>
+        <li> 
+		<a href="/logout"> 
+			log out
+		</a> 
+	</li>
+</ul>
+<div data-role="navbar" data-theme="a">
+	<ul><li><a href="/ridesharekenyalogin">main<br/>menu</a></li>
+	<li><a href="/myaccount">my<br/>account</a></li>
+	<li><a href="/mynetwork">my<br/>network</a></li>
+	<li><a href="/addtonetwork">add to<br/>network</a></li></ul>
+</div>
+<div data-role="footer" data-theme="a"> 
+			<h6 class="footertext">&copy Rideshare-Ke</h6>
+		</div>
+</body>
+</html>'''
+      self.response.out.write(header+content+footer)
+#end class Liftseekersaroundmenetwork ...

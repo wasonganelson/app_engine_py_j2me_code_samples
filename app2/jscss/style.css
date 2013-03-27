@@ -1,0 +1,29 @@
+*{margin:0px;font-family:'helvetica neue',arial;}
+.pageheader{padding-top:10px;height:25px;background-color:#48C62A;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#48C62A),color-stop(1,#48C62A));text-align:center;color:white;font-size:13px;font-weight:bold;}
+.pagefooter{padding-top:10px;height:25px;background-color:#48C62A;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#48C62A),color-stop(1,#48C62A));text-align:center;color:white;font-size:13px;font-weight:bold;}
+.pagecontent{background-color:white;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,white),color-stop(1,white));}
+.searchtextinput{margin-left:5%;width:60%;}
+.searchbutton{margin-left:1%;margin-top:10px;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#48C62A),color-stop(1,#48C62A));background-color:#48C62A;color:white;border-radius:10px;border-width:0px;height:30px;width:25%;font-weight:bold;}
+.needitsummaryblock{padding:10px;}
+.needitsummaryimage{float:left;padding:1px;width:50px;background-color:#48C62A;}
+.myneeditsummaryimage{float:left;padding:1px;margin-right:10px;margin-bottom:5px;width:50px;background-color:#48C62A;}
+.getneeditimage{float:left;padding:1px;margin-top:20px;margin-right:10px;margin-bottom:35px;width:70px;background-color:#ffffff;}
+.needitprofileimage{padding:1px;margin-right:20px;margin-bottom:10px;width:150px;background-color:#48C62A;}
+.needitsummarytext{padding-left:60px;color:black;font-size:11px;}
+.myneeditsummarytext{padding-left:0px;color:black;font-size:11px;}
+.getneedittext{margin-top:-15px;color:black;font-size:12px;padding-left:80px;}
+.viewmorelink{text-decoration:none;color:green;font-weight:bold;font-size:12px;}
+.removeneeditlink{text-decoration:none;color:green;font-weight:bold;font-size:12px;}
+.needitsummaryendline{border:1px inset #48C62A;}
+.button{margin-top:10px;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#48C62A),color-stop(1,#48C62A));background-color:#48C62A;color:white;border-radius:10px;border-width:0px;height:30px;width:70px;font-weight:bold;}
+.footerlink{text-decoration:none;color:white;font-weight:bold;font-size:13px;}
+.footerlinkitem{padding-top:10px;padding-left:10px;height:25px;border-bottom:2px inset white;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#48C62A),color-stop(1,#48C62A));background-color:#48C62A;}
+.aboutcontent{padding:10px;font-size:12px;}
+.postcontent{padding:10px;font-weight:bold;font-size:12px;}
+.signupcontent{padding:10px;font-size:12px;}
+.myprofilecontent{padding:10px;}
+.getneeditcontent{padding:10px;font-size:12px;}
+.fb-share{padding-left:30px;}
+.gplus{padding-left:30px;}
+.postcontenttextarea{width:95%;}
+.resultsnotfound{padding:20px;font-weight:bold;font-size:13px;color:#48C62A}

@@ -1,0 +1,19 @@
+CACHE MANIFEST
+# manifest version 24/9/2012 11:59
+
+CACHE:
+/jscss/jqmcss.css
+/jscss/style.css
+
+/jscss/jqjs.js
+/jscss/custom.js
+/jscss/jqmjs.js
+
+/jscss/images/ajax-loader.png
+/jscss/images/icons-18-white.png
+/jscss/images/icon-search-black.png
+
+/images/logo.png
+NETWORK:
+*
+FALLBACK:

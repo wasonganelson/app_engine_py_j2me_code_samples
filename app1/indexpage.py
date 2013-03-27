@@ -1,0 +1,69 @@
+from google.appengine.ext import webapp
+
+class Indexpage(webapp.RequestHandler):
+   def get(self):
+      indexheader = '''<!doctype html> 
+<html manifest="/appcachedir/app.appcache">
+	<head>
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0;" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<link type="text/css" rel="stylesheet" href="jscss/jqmcss.css" />
+		<link type="text/css" rel="stylesheet" href="jscss/style.css" />
+		<script type="text/javascript" src="jscss/jqjs.js"></script>
+                <script type="text/javascript" src="jscss/custom.js"></script> 
+		<script type="text/javascript" src="jscss/jqmjs.js"></script> 
+                <title> 
+			CampusDaily
+		</title> 
+	</head> 
+	<body>
+		<div data-role="page"> 
+			<div data-role="header" data-theme="a">
+				<div class="headertext"> 
+				CampusDaily
+				</div>
+			</div>'''
+      indexcontent = '''<div class="content" data-role="content" data-theme="a"> <br/>
+			<div class="logo"> 
+                           <img src="images/logo.png" /><br/><br/>
+			</div> 
+			<ul data-role="listview" data-inset="false" data-theme="c"> 
+					<li> 
+						<a href="/newspage"> 
+							news
+						</a> 
+					</li> 
+					<li> 
+						<a href="/campuses"> 
+							campuses
+						</a> 
+					</li>
+                                        <li> 
+						<a href="/breaknews"> 
+							break news
+						</a> 
+					</li>
+                                        <li> 
+						<a onclick="getnewsaroundme();"> 
+							news around me
+						</a> 
+					</li>
+                                        <li> 
+						<a href="/about"> 
+							about
+						</a> 
+					</li>
+                                </ul> 
+		</div>'''
+      indexfooter = '''<div data-role="footer" data-theme="a"> 
+			<div class="footertext"> 
+			&copy CampusDaily
+			</div> 
+		</div> 
+		</div> 
+	</body> 
+</html>'''
+      self.response.out.write(indexheader+indexcontent+indexfooter)
+#end class Indexpage ...

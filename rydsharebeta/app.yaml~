@@ -1,0 +1,26 @@
+application: rydshare
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /appcachedir/(.*\.appcache)
+  static_files: appcachedir/\1
+  mime_type: text/cache-manifest
+  upload: appcachedir/(.*\.appcache)
+  expiration: "0s"
+
+- url: /jscss
+  static_dir: jscss
+
+- url: /jscss/images
+  static_dir: /jscss/images
+
+- url: /images
+  static_dir: images
+
+- url: /oauth2callback
+  script: oauth2client/appengine.py
+
+- url: /.*
+  script: app.py

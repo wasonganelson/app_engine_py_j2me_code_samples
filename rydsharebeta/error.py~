@@ -1,0 +1,6 @@
+from google.appengine.ext import webapp
+
+class Error(webapp.RequestHandler):
+   def get(self):
+      self.response.out.write('<br><br><br><br><br><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sorry! app only accessible from smartphone with webkit based browser ')
+#end class Error ...

@@ -1,0 +1,898 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LiveData</title>
+<style type="text/css">
+<!--
+body {
+	margin: 0px;
+	font-family: arial;
+	font-size: 11px;
+}
+.tblheader {
+	color: #FFFFFF;
+	background-color: #0000FF;
+	border-right: 1px solid #999999;
+	font-weight: bold;
+	padding-right: 5px;
+}
+.mycell {
+	padding-right: 5px;
+}
+#data td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+}
+.style1 {
+	color: #000066;
+	font-weight: bold;
+}
+.style2 {padding-right: 5px; font-weight: bold; }
+-->
+</style>
+<script language="javascript" type="text/javascript">
+function updatePage() {
+	var divobj = document.getElementById("livedata");
+	var XMLHttpRequestObject = false;
+	try  {  XMLHttpRequestObject = new XMLHttpRequest();  }
+	catch (e) {
+		try {  XMLHttpRequestObject = new ActiveXObject("Msxml2.XMLHttp");  }
+		catch (e) { 
+			try  { XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHttp");  }
+			catch (e) {
+				return false; 
+			}
+		}
+	}
+		
+	if ((XMLHttpRequestObject) && (divobj)) {	
+		
+		XMLHttpRequestObject.onreadystatechange = function()
+		{
+			if ((XMLHttpRequestObject.readyState == 4) && (XMLHttpRequestObject.status == 200)) {
+				returnStr = XMLHttpRequestObject.responseText;
+				divobj.innerHTML = returnStr;
+			}
+		}
+	}
+		
+	XMLHttpRequestObject.open("GET", "livedata.asp?data", true);
+	XMLHttpRequestObject.send(null);
+	setTimeout("updatePage()", 60000);
+}
+window.onload = function() {
+	updatePage();
+}
+</script>
+</head><body>
+	<div id="livedata">
+<table id="data" width="100%" border="0" cellpadding="2" cellspacing="0">
+	<tbody><tr>
+		<td colspan="11" valign="middle"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td nowrap="nowrap"><strong>Market Closed | NSE Live Feed: Wed 3:10:00 PM</strong></td>
+					<td nowrap="nowrap" width="30%" align="right"><span class="style1">Nelly Data </span></td>
+				</tr>
+			</tbody></table></td>
+		</tr>
+	<tr>
+		<th class="tblheader" valign="middle" width="1%">#
+		</th><th class="tblheader" style="padding-left: 5px;" valign="middle" width="15%" align="left"><strong>Stock</strong>
+		</th><th class="tblheader" valign="middle" width="12%" align="right"><strong>Yester.</strong>
+			
+		</th><th class="tblheader" valign="middle" width="12%" align="right"><strong>Today</strong>
+		</th><th colspan="3" class="tblheader" valign="middle" align="center"><strong>Change</strong>
+		</th><th class="tblheader" valign="middle" width="12%" align="right"><strong>High</strong>
+			
+		</th><th class="tblheader" valign="middle" width="12%" align="right"><strong>Low</strong>
+			
+		</th><th class="tblheader" valign="middle" width="11%" align="right"><strong>No. of<br>
+		Trades</strong>
+		</th><th class="tblheader" valign="middle" width="13%" align="right"><strong>Shares<br>
+		Traded</strong> 		</th></tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">1</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=AccessKenya Group&amp;price=5.45');" title="Click to place an order for AccessKenya Group" nowrap="nowrap" width=""><strong>AccessKenya Group</strong></td>
+		<td class="mycell" width="" align="right">5.35</td>
+		<td class="style2" width="" align="right">5.45</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.10</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.87 %</td>
+		<td class="mycell" width="" align="right">5.50</td>
+		<td class="mycell" width="" align="right">5.30</td>
+		<td class="mycell" width="" align="right">11</td>
+		<td class="mycell" width="" align="right">13,500</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">2</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Athi River Mining&amp;price=152.00');" title="Click to place an order for Athi River Mining" nowrap="nowrap" width=""><strong>Athi River Mining</strong></td>
+		<td class="mycell" width="" align="right">150.00</td>
+		<td class="style2" width="" align="right">152.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+2.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.33 %</td>
+		<td class="mycell" width="" align="right">155.00</td>
+		<td class="mycell" width="" align="right">150.00</td>
+		<td class="mycell" width="" align="right">2</td>
+		<td class="mycell" width="" align="right">200</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">3</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Bamburi Cement&amp;price=156.00');" title="Click to place an order for Bamburi Cement" nowrap="nowrap" width=""><strong>Bamburi Cement</strong></td>
+		<td class="mycell" width="" align="right">156.00</td>
+		<td class="style2" width="" align="right">156.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">156.00</td>
+		<td class="mycell" width="" align="right">156.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">200</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">4</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Barclays Bank&amp;price=13.10');" title="Click to place an order for Barclays Bank" nowrap="nowrap" width=""><strong>Barclays Bank</strong></td>
+		<td class="mycell" width="" align="right">13.30</td>
+		<td class="style2" width="" align="right">13.10</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.20</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.50 %</td>
+		<td class="mycell" width="" align="right">13.20</td>
+		<td class="mycell" width="" align="right">13.00</td>
+		<td class="mycell" width="" align="right">73</td>
+		<td class="mycell" width="" align="right">108,200</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">5</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=BOC Kenya&amp;price=95.00');" title="Click to place an order for BOC Kenya" nowrap="nowrap" width=""><strong>BOC Kenya</strong></td>
+		<td class="mycell" width="" align="right">95.00</td>
+		<td class="style2" width="" align="right">95.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">6</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=British American Tobacco&amp;price=235.00');" title="Click to place an order for British American Tobacco" nowrap="nowrap" width=""><strong>British American Tobacco</strong></td>
+		<td class="mycell" width="" align="right">230.00</td>
+		<td class="style2" width="" align="right">235.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+5.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">2.17 %</td>
+		<td class="mycell" width="" align="right">235.00</td>
+		<td class="mycell" width="" align="right">235.00</td>
+		<td class="mycell" width="" align="right">2</td>
+		<td class="mycell" width="" align="right">1,700</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">7</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=British-American Investments&amp;price=5.05');" title="Click to place an order for British-American Investments" nowrap="nowrap" width=""><strong>British-American Investments</strong></td>
+		<td class="mycell" width="" align="right">5.25</td>
+		<td class="style2" width="" align="right">5.05</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.20</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-3.81 %</td>
+		<td class="mycell" width="" align="right">5.30</td>
+		<td class="mycell" width="" align="right">5.00</td>
+		<td class="mycell" width="" align="right">24</td>
+		<td class="mycell" width="" align="right">77,600</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">8</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Car &amp; General&amp;price=24.75');" title="Click to place an order for Car &amp; General" nowrap="nowrap" width=""><strong>Car &amp; General</strong></td>
+		<td class="mycell" width="" align="right">24.75</td>
+		<td class="style2" width="" align="right">24.75</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">9</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Carbacid Investments&amp;price=100.00');" title="Click to place an order for Carbacid Investments" nowrap="nowrap" width=""><strong>Carbacid Investments</strong></td>
+		<td class="mycell" width="" align="right">98.00</td>
+		<td class="style2" width="" align="right">100.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+2.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">2.04 %</td>
+		<td class="mycell" width="" align="right">100.00</td>
+		<td class="mycell" width="" align="right">100.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">1,000</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">10</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Centum Investment&amp;price=14.25');" title="Click to place an order for Centum Investment" nowrap="nowrap" width=""><strong>Centum Investment</strong></td>
+		<td class="mycell" width="" align="right">14.50</td>
+		<td class="style2" width="" align="right">14.25</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.25</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.72 %</td>
+		<td class="mycell" width="" align="right">14.50</td>
+		<td class="mycell" width="" align="right">14.05</td>
+		<td class="mycell" width="" align="right">16</td>
+		<td class="mycell" width="" align="right">10,700</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">11</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=CFC Insurance Holdings&amp;price=8.50');" title="Click to place an order for CFC Insurance Holdings" nowrap="nowrap" width=""><strong>CFC Insurance Holdings</strong></td>
+		<td class="mycell" width="" align="right">8.45</td>
+		<td class="style2" width="" align="right">8.50</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.59 %</td>
+		<td class="mycell" width="" align="right">8.50</td>
+		<td class="mycell" width="" align="right">8.50</td>
+		<td class="mycell" width="" align="right">7</td>
+		<td class="mycell" width="" align="right">2,900</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">12</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=CFC Stanbic&amp;price=44.50');" title="Click to place an order for CFC Stanbic" nowrap="nowrap" width=""><strong>CFC Stanbic</strong></td>
+		<td class="mycell" width="" align="right">44.00</td>
+		<td class="style2" width="" align="right">44.50</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.50</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.14 %</td>
+		<td class="mycell" width="" align="right">44.50</td>
+		<td class="mycell" width="" align="right">44.50</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">9,000</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">13</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=City Trust&amp;price=225.00');" title="Click to place an order for City Trust" nowrap="nowrap" width=""><strong>City Trust</strong></td>
+		<td class="mycell" width="" align="right">225.00</td>
+		<td class="style2" width="" align="right">225.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">14</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=CMC Holdings&amp;price=13.50');" title="Click to place an order for CMC Holdings" nowrap="nowrap" width=""><strong>CMC Holdings</strong></td>
+		<td class="mycell" width="" align="right">13.50</td>
+		<td class="style2" width="" align="right">13.50</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">15</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Cooperative Bank&amp;price=13.85');" title="Click to place an order for Cooperative Bank" nowrap="nowrap" width=""><strong>Cooperative Bank</strong></td>
+		<td class="mycell" width="" align="right">13.90</td>
+		<td class="style2" width="" align="right">13.85</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-0.36 %</td>
+		<td class="mycell" width="" align="right">14.00</td>
+		<td class="mycell" width="" align="right">13.00</td>
+		<td class="mycell" width="" align="right">79</td>
+		<td class="mycell" width="" align="right">425,200</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">16</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Crown Berger&amp;price=23.00');" title="Click to place an order for Crown Berger" nowrap="nowrap" width=""><strong>Crown Berger</strong></td>
+		<td class="mycell" width="" align="right">24.25</td>
+		<td class="style2" width="" align="right">23.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-1.25</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-5.15 %</td>
+		<td class="mycell" width="" align="right">23.00</td>
+		<td class="mycell" width="" align="right">23.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">300</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">17</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Diamond Trust Bank&amp;price=90.00');" title="Click to place an order for Diamond Trust Bank" nowrap="nowrap" width=""><strong>Diamond Trust Bank</strong></td>
+		<td class="mycell" width="" align="right">90.00</td>
+		<td class="style2" width="" align="right">90.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">90.00</td>
+		<td class="mycell" width="" align="right">90.00</td>
+		<td class="mycell" width="" align="right">2</td>
+		<td class="mycell" width="" align="right">900</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">18</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=EA Breweries&amp;price=170.00');" title="Click to place an order for EA Breweries" nowrap="nowrap" width=""><strong>EA Breweries</strong></td>
+		<td class="mycell" width="" align="right">170.00</td>
+		<td class="style2" width="" align="right">170.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">170.00</td>
+		<td class="mycell" width="" align="right">170.00</td>
+		<td class="mycell" width="" align="right">8</td>
+		<td class="mycell" width="" align="right">3,600</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">19</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=EA Cables&amp;price=11.00');" title="Click to place an order for EA Cables" nowrap="nowrap" width=""><strong>EA Cables</strong></td>
+		<td class="mycell" width="" align="right">10.85</td>
+		<td class="style2" width="" align="right">11.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.15</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.38 %</td>
+		<td class="mycell" width="" align="right">11.40</td>
+		<td class="mycell" width="" align="right">11.00</td>
+		<td class="mycell" width="" align="right">8</td>
+		<td class="mycell" width="" align="right">11,800</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">20</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=EA Portland Cement&amp;price=58.00');" title="Click to place an order for EA Portland Cement" nowrap="nowrap" width=""><strong>EA Portland Cement</strong></td>
+		<td class="mycell" width="" align="right">58.00</td>
+		<td class="style2" width="" align="right">58.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">58.00</td>
+		<td class="mycell" width="" align="right">58.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">400</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">21</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Eaagads&amp;price=35.00');" title="Click to place an order for Eaagads" nowrap="nowrap" width=""><strong>Eaagads</strong></td>
+		<td class="mycell" width="" align="right">35.00</td>
+		<td class="style2" width="" align="right">35.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">35.00</td>
+		<td class="mycell" width="" align="right">35.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">1,000</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">22</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Equity Bank&amp;price=19.00');" title="Click to place an order for Equity Bank" nowrap="nowrap" width=""><strong>Equity Bank</strong></td>
+		<td class="mycell" width="" align="right">19.45</td>
+		<td class="style2" width="" align="right">19.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.45</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-2.31 %</td>
+		<td class="mycell" width="" align="right">19.50</td>
+		<td class="mycell" width="" align="right">18.80</td>
+		<td class="mycell" width="" align="right">60</td>
+		<td class="mycell" width="" align="right">4,804,400</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">23</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Eveready EA&amp;price=1.70');" title="Click to place an order for Eveready EA" nowrap="nowrap" width=""><strong>Eveready EA</strong></td>
+		<td class="mycell" width="" align="right">1.75</td>
+		<td class="style2" width="" align="right">1.70</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-2.86 %</td>
+		<td class="mycell" width="" align="right">1.75</td>
+		<td class="mycell" width="" align="right">1.70</td>
+		<td class="mycell" width="" align="right">14</td>
+		<td class="mycell" width="" align="right">25,300</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">24</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Express&amp;price=3.80');" title="Click to place an order for Express" nowrap="nowrap" width=""><strong>Express</strong></td>
+		<td class="mycell" width="" align="right">4.00</td>
+		<td class="style2" width="" align="right">3.80</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.20</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-5.00 %</td>
+		<td class="mycell" width="" align="right">3.80</td>
+		<td class="mycell" width="" align="right">3.80</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">1,000</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">25</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Housing Finance&amp;price=14.50');" title="Click to place an order for Housing Finance" nowrap="nowrap" width=""><strong>Housing Finance</strong></td>
+		<td class="mycell" width="" align="right">14.65</td>
+		<td class="style2" width="" align="right">14.50</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.15</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.02 %</td>
+		<td class="mycell" width="" align="right">14.60</td>
+		<td class="mycell" width="" align="right">14.50</td>
+		<td class="mycell" width="" align="right">22</td>
+		<td class="mycell" width="" align="right">60,100</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">26</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Jubilee Holdings&amp;price=165.00');" title="Click to place an order for Jubilee Holdings" nowrap="nowrap" width=""><strong>Jubilee Holdings</strong></td>
+		<td class="mycell" width="" align="right">164.00</td>
+		<td class="style2" width="" align="right">165.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+1.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.61 %</td>
+		<td class="mycell" width="" align="right">165.00</td>
+		<td class="mycell" width="" align="right">165.00</td>
+		<td class="mycell" width="" align="right">6</td>
+		<td class="mycell" width="" align="right">11,000</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">27</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kakuzi&amp;price=72.50');" title="Click to place an order for Kakuzi" nowrap="nowrap" width=""><strong>Kakuzi</strong></td>
+		<td class="mycell" width="" align="right">72.50</td>
+		<td class="style2" width="" align="right">72.50</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">28</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kapchorua Tea&amp;price=125.00');" title="Click to place an order for Kapchorua Tea" nowrap="nowrap" width=""><strong>Kapchorua Tea</strong></td>
+		<td class="mycell" width="" align="right">125.00</td>
+		<td class="style2" width="" align="right">125.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">29</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=KCB Bank&amp;price=16.45');" title="Click to place an order for KCB Bank" nowrap="nowrap" width=""><strong>KCB Bank</strong></td>
+		<td class="mycell" width="" align="right">16.65</td>
+		<td class="style2" width="" align="right">16.45</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.20</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.20 %</td>
+		<td class="mycell" width="" align="right">16.80</td>
+		<td class="mycell" width="" align="right">16.10</td>
+		<td class="mycell" width="" align="right">58</td>
+		<td class="mycell" width="" align="right">361,400</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">30</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kengen&amp;price=9.35');" title="Click to place an order for Kengen" nowrap="nowrap" width=""><strong>Kengen</strong></td>
+		<td class="mycell" width="" align="right">9.40</td>
+		<td class="style2" width="" align="right">9.35</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-0.53 %</td>
+		<td class="mycell" width="" align="right">9.50</td>
+		<td class="mycell" width="" align="right">9.30</td>
+		<td class="mycell" width="" align="right">44</td>
+		<td class="mycell" width="" align="right">196,400</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">31</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=KenolKobil&amp;price=9.60');" title="Click to place an order for KenolKobil" nowrap="nowrap" width=""><strong>KenolKobil</strong></td>
+		<td class="mycell" width="" align="right">9.75</td>
+		<td class="style2" width="" align="right">9.60</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.15</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.54 %</td>
+		<td class="mycell" width="" align="right">9.70</td>
+		<td class="mycell" width="" align="right">9.60</td>
+		<td class="mycell" width="" align="right">14</td>
+		<td class="mycell" width="" align="right">11,300</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">32</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kenya Airways&amp;price=20.25');" title="Click to place an order for Kenya Airways" nowrap="nowrap" width=""><strong>Kenya Airways</strong></td>
+		<td class="mycell" width="" align="right">19.70</td>
+		<td class="style2" width="" align="right">20.25</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.55</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">2.79 %</td>
+		<td class="mycell" width="" align="right">21.25</td>
+		<td class="mycell" width="" align="right">19.60</td>
+		<td class="mycell" width="" align="right">31</td>
+		<td class="mycell" width="" align="right">26,600</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">33</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kenya Orchads&amp;price=3.00');" title="Click to place an order for Kenya Orchads" nowrap="nowrap" width=""><strong>Kenya Orchads</strong></td>
+		<td class="mycell" width="" align="right">3.00</td>
+		<td class="style2" width="" align="right">3.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">34</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kenya Power &amp; Lighting&amp;price=17.45');" title="Click to place an order for Kenya Power &amp; Lighting" nowrap="nowrap" width=""><strong>Kenya Power &amp; Lighting</strong></td>
+		<td class="mycell" width="" align="right">17.50</td>
+		<td class="style2" width="" align="right">17.45</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-0.29 %</td>
+		<td class="mycell" width="" align="right">17.90</td>
+		<td class="mycell" width="" align="right">17.45</td>
+		<td class="mycell" width="" align="right">25</td>
+		<td class="mycell" width="" align="right">134,700</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">35</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kenya Power &amp; Lighting - Rights&amp;price=0.55');" title="Click to place an order for Kenya Power &amp; Lighting - Rights" nowrap="nowrap" width=""><strong>Kenya Power &amp; Lighting - Rights</strong></td>
+		<td class="mycell" width="" align="right">0.55</td>
+		<td class="style2" width="" align="right">0.55</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">36</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Kenya Re-Insurance&amp;price=7.50');" title="Click to place an order for Kenya Re-Insurance" nowrap="nowrap" width=""><strong>Kenya Re-Insurance</strong></td>
+		<td class="mycell" width="" align="right">7.60</td>
+		<td class="style2" width="" align="right">7.50</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.10</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.32 %</td>
+		<td class="mycell" width="" align="right">7.60</td>
+		<td class="mycell" width="" align="right">7.50</td>
+		<td class="mycell" width="" align="right">7</td>
+		<td class="mycell" width="" align="right">5,000</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">37</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Limuru Tea&amp;price=356.00');" title="Click to place an order for Limuru Tea" nowrap="nowrap" width=""><strong>Limuru Tea</strong></td>
+		<td class="mycell" width="" align="right">356.00</td>
+		<td class="style2" width="" align="right">356.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">38</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Marshalls EA&amp;price=12.25');" title="Click to place an order for Marshalls EA" nowrap="nowrap" width=""><strong>Marshalls EA</strong></td>
+		<td class="mycell" width="" align="right">12.25</td>
+		<td class="style2" width="" align="right">12.25</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">39</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Mumias Sugar&amp;price=5.45');" title="Click to place an order for Mumias Sugar" nowrap="nowrap" width=""><strong>Mumias Sugar</strong></td>
+		<td class="mycell" width="" align="right">5.60</td>
+		<td class="style2" width="" align="right">5.45</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.15</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-2.68 %</td>
+		<td class="mycell" width="" align="right">5.60</td>
+		<td class="mycell" width="" align="right">5.40</td>
+		<td class="mycell" width="" align="right">37</td>
+		<td class="mycell" width="" align="right">356,800</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">40</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Nation Media Group&amp;price=145.00');" title="Click to place an order for Nation Media Group" nowrap="nowrap" width=""><strong>Nation Media Group</strong></td>
+		<td class="mycell" width="" align="right">143.00</td>
+		<td class="style2" width="" align="right">145.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+2.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.40 %</td>
+		<td class="mycell" width="" align="right">146.00</td>
+		<td class="mycell" width="" align="right">143.00</td>
+		<td class="mycell" width="" align="right">10</td>
+		<td class="mycell" width="" align="right">45,400</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">41</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=National Bank of Kenya&amp;price=21.75');" title="Click to place an order for National Bank of Kenya" nowrap="nowrap" width=""><strong>National Bank of Kenya</strong></td>
+		<td class="mycell" width="" align="right">22.25</td>
+		<td class="style2" width="" align="right">21.75</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.50</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-2.25 %</td>
+		<td class="mycell" width="" align="right">22.50</td>
+		<td class="mycell" width="" align="right">21.50</td>
+		<td class="mycell" width="" align="right">17</td>
+		<td class="mycell" width="" align="right">20,600</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">42</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=NIC Bank&amp;price=27.25');" title="Click to place an order for NIC Bank" nowrap="nowrap" width=""><strong>NIC Bank</strong></td>
+		<td class="mycell" width="" align="right">27.50</td>
+		<td class="style2" width="" align="right">27.25</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.25</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-0.91 %</td>
+		<td class="mycell" width="" align="right">28.75</td>
+		<td class="mycell" width="" align="right">27.00</td>
+		<td class="mycell" width="" align="right">7</td>
+		<td class="mycell" width="" align="right">5,600</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">43</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Olympia Capital&amp;price=3.90');" title="Click to place an order for Olympia Capital" nowrap="nowrap" width=""><strong>Olympia Capital</strong></td>
+		<td class="mycell" width="" align="right">3.85</td>
+		<td class="style2" width="" align="right">3.90</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.30 %</td>
+		<td class="mycell" width="" align="right">3.90</td>
+		<td class="mycell" width="" align="right">3.90</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">100</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">44</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Pan Africa Insurance&amp;price=22.50');" title="Click to place an order for Pan Africa Insurance" nowrap="nowrap" width=""><strong>Pan Africa Insurance</strong></td>
+		<td class="mycell" width="" align="right">22.50</td>
+		<td class="style2" width="" align="right">22.50</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">22.50</td>
+		<td class="mycell" width="" align="right">22.50</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">32,000</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">45</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Rea Vipingo Plantations&amp;price=19.05');" title="Click to place an order for Rea Vipingo Plantations" nowrap="nowrap" width=""><strong>Rea Vipingo Plantations</strong></td>
+		<td class="mycell" width="" align="right">19.40</td>
+		<td class="style2" width="" align="right">19.05</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.35</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.80 %</td>
+		<td class="mycell" width="" align="right">19.40</td>
+		<td class="mycell" width="" align="right">19.00</td>
+		<td class="mycell" width="" align="right">4</td>
+		<td class="mycell" width="" align="right">4,100</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">46</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Safaricom Limited&amp;price=2.90');" title="Click to place an order for Safaricom Limited" nowrap="nowrap" width=""><strong>Safaricom Limited</strong></td>
+		<td class="mycell" width="" align="right">2.90</td>
+		<td class="style2" width="" align="right">2.90</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">2.95</td>
+		<td class="mycell" width="" align="right">2.80</td>
+		<td class="mycell" width="" align="right">94</td>
+		<td class="mycell" width="" align="right">4,174,400</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">47</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Sameer Africa&amp;price=4.00');" title="Click to place an order for Sameer Africa" nowrap="nowrap" width=""><strong>Sameer Africa</strong></td>
+		<td class="mycell" width="" align="right">4.20</td>
+		<td class="style2" width="" align="right">4.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.20</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-4.76 %</td>
+		<td class="mycell" width="" align="right">4.20</td>
+		<td class="mycell" width="" align="right">4.00</td>
+		<td class="mycell" width="" align="right">30</td>
+		<td class="mycell" width="" align="right">218,200</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">48</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Sasini&amp;price=13.45');" title="Click to place an order for Sasini" nowrap="nowrap" width=""><strong>Sasini</strong></td>
+		<td class="mycell" width="" align="right">13.20</td>
+		<td class="style2" width="" align="right">13.45</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.25</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">1.89 %</td>
+		<td class="mycell" width="" align="right">13.50</td>
+		<td class="mycell" width="" align="right">13.35</td>
+		<td class="mycell" width="" align="right">11</td>
+		<td class="mycell" width="" align="right">34,000</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">49</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Scangroup&amp;price=41.25');" title="Click to place an order for Scangroup" nowrap="nowrap" width=""><strong>Scangroup</strong></td>
+		<td class="mycell" width="" align="right">41.25</td>
+		<td class="style2" width="" align="right">41.25</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">42.00</td>
+		<td class="mycell" width="" align="right">40.25</td>
+		<td class="mycell" width="" align="right">10</td>
+		<td class="mycell" width="" align="right">9,600</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">50</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Standard Chartered Bank&amp;price=179.00');" title="Click to place an order for Standard Chartered Bank" nowrap="nowrap" width=""><strong>Standard Chartered Bank</strong></td>
+		<td class="mycell" width="" align="right">178.00</td>
+		<td class="style2" width="" align="right">179.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+1.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.56 %</td>
+		<td class="mycell" width="" align="right">182.00</td>
+		<td class="mycell" width="" align="right">179.00</td>
+		<td class="mycell" width="" align="right">11</td>
+		<td class="mycell" width="" align="right">2,800</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">51</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Standard Group&amp;price=25.00');" title="Click to place an order for Standard Group" nowrap="nowrap" width=""><strong>Standard Group</strong></td>
+		<td class="mycell" width="" align="right">27.00</td>
+		<td class="style2" width="" align="right">25.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-2.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-7.41 %</td>
+		<td class="mycell" width="" align="right">25.00</td>
+		<td class="mycell" width="" align="right">25.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">100</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">52</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Total Kenya&amp;price=15.80');" title="Click to place an order for Total Kenya" nowrap="nowrap" width=""><strong>Total Kenya</strong></td>
+		<td class="mycell" width="" align="right">15.70</td>
+		<td class="style2" width="" align="right">15.80</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#990100;">+0.10</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.64 %</td>
+		<td class="mycell" width="" align="right">15.80</td>
+		<td class="mycell" width="" align="right">15.80</td>
+		<td class="mycell" width="" align="right">6</td>
+		<td class="mycell" width="" align="right">7,600</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">53</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=TPS EA Serena&amp;price=52.00');" title="Click to place an order for TPS EA Serena" nowrap="nowrap" width=""><strong>TPS EA Serena</strong></td>
+		<td class="mycell" width="" align="right">54.00</td>
+		<td class="style2" width="" align="right">52.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-2.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-3.70 %</td>
+		<td class="mycell" width="" align="right">55.00</td>
+		<td class="mycell" width="" align="right">51.00</td>
+		<td class="mycell" width="" align="right">3</td>
+		<td class="mycell" width="" align="right">2,900</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">54</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Transcentury&amp;price=27.00');" title="Click to place an order for Transcentury" nowrap="nowrap" width=""><strong>Transcentury</strong></td>
+		<td class="mycell" width="" align="right">28.00</td>
+		<td class="style2" width="" align="right">27.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-1.00</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-3.57 %</td>
+		<td class="mycell" width="" align="right">27.00</td>
+		<td class="mycell" width="" align="right">27.00</td>
+		<td class="mycell" width="" align="right">1</td>
+		<td class="mycell" width="" align="right">200</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">55</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Uchumi Supermarket&amp;price=7.95');" title="Click to place an order for Uchumi Supermarket" nowrap="nowrap" width=""><strong>Uchumi Supermarket</strong></td>
+		<td class="mycell" width="" align="right">8.00</td>
+		<td class="style2" width="" align="right">7.95</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.05</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-0.63 %</td>
+		<td class="mycell" width="" align="right">8.00</td>
+		<td class="mycell" width="" align="right">7.55</td>
+		<td class="mycell" width="" align="right">15</td>
+		<td class="mycell" width="" align="right">11,900</td>
+		</tr>
+	
+	<tr bgcolor="#bfd5ea">
+		<td class="mycell" width="">56</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Unga Group&amp;price=11.00');" title="Click to place an order for Unga Group" nowrap="nowrap" width=""><strong>Unga Group</strong></td>
+		<td class="mycell" width="" align="right">11.15</td>
+		<td class="style2" width="" align="right">11.00</td>
+		<td class="mycell" width="0" align="right"><strong><span stlye="color:#006734;">-0.15</span></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">-1.35 %</td>
+		<td class="mycell" width="" align="right">11.25</td>
+		<td class="mycell" width="" align="right">10.95</td>
+		<td class="mycell" width="" align="right">8</td>
+		<td class="mycell" width="" align="right">52,500</td>
+		</tr>
+	
+	<tr bgcolor="#cedded">
+		<td class="mycell" width="">57</td>
+		<td class="mycell" onmouseover="this.style.color='red';this.style.cursor='hand';" onmouseout="this.style.color='Black';this.style.cursor='text/edit';" onclick="javascript:window.location.replace('NewAddOrder.asp?id=Williamson Tea&amp;price=285.00');" title="Click to place an order for Williamson Tea" nowrap="nowrap" width=""><strong>Williamson Tea</strong></td>
+		<td class="mycell" width="" align="right">285.00</td>
+		<td class="style2" width="" align="right">285.00</td>
+		<td class="mycell" width="0" align="right"><strong></strong></td>
+		<td class="mycell" width="0" align="right">|</td>
+		<td class="mycell" nowrap="nowrap" width="" align="left">0.00 %</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0.00</td>
+		<td class="mycell" width="" align="right">0</td>
+		<td class="mycell" width="" align="right">0</td>
+		</tr>
+	
+</tbody></table>
+</div>
+</body></html>

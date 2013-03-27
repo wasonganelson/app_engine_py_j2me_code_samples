@@ -1,0 +1,20 @@
+application: campusdailykenya
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /appcachedir/(.*\.appcache)
+  static_files: appcachedir/\1
+  mime_type: text/cache-manifest
+  upload: appcachedir/(.*\.appcache)
+  expiration: "0s"
+
+- url: /jscss
+  static_dir: jscss
+
+- url: /images
+  static_dir: images
+
+- url: /.*
+  script: app1.py
